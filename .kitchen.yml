@@ -1,0 +1,38 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+
+provisioner:
+  name: chef_zero
+  deprecations_as_errors: false
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7
+    driver:
+      box: bento/centos-7.3
+    run_list:
+    - recipe[selinux::disabled]
+  - name: ubuntu-16.04
+    driver:
+      box: bento/ubuntu-16.04
+  - name: ubuntu-18.04
+    driver:
+      box: bento/ubuntu-18.04
+  - name: debian-9
+    driver:
+      box: bento/debian-9.6
+
+suites:
+  - name: default
+    run_list:
+      - recipe[mysql_test::default]
+      - recipe[fenixedu-cookbook::default]
+    attributes:
+    verifier:
+      inspec_tests:
+        - test/integration/default/inspec

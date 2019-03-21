@@ -15,7 +15,7 @@ end
 supports 'debian', '>= 9.0'
 supports 'ubuntu', '>= 18.04'
 
-%w( apt yum yum-epel poise-service hostsfile selinux).each do |dep|
+%w( java tomcat maven ).each do |dep|
   depends dep
 end
 

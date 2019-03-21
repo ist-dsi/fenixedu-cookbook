@@ -8,9 +8,9 @@ This cookbook installs and configures [FenixEdu is a modular software platform f
 
 ### Supported FenixEdu Versions
 
-| FenixEdu Version | Cookbook Version |
-|:------------------:|:----------------:|
-| 21.1.3             | v0.0.1           |
+| FenixEdu webapp Version | Cookbook Version |
+|:-----------------------:|:----------------:|
+| 0.0.1                   | v0.0.1           |
 
 ## Requirements
 

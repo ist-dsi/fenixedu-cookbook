@@ -32,4 +32,5 @@ end
 ###########################################################
 
 node.normal['maven']['mavenrc']['opts'] = "#{node['fenixedu-cookbook']['webapp']['java_opts']} -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false"
+node.normal['maven']['setup_bin'] = true
 include_recipe 'maven'

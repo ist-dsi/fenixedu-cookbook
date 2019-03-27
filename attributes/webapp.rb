@@ -84,27 +84,27 @@ default['fenixedu-cookbook']['viewstate']['signature']['key'] = 'somerandomstrin
 
 ################### Properties for Sap Sdk Configuration ###################
 
-default['fenixedu-cookbook']['sap.client']['cache']['aggressive'] = true
-default['fenixedu-cookbook']['sap']['client']['cache']['aggressive']['expires'] = 360
-default['fenixedu-cookbook']['sap']['client']['cache']['enabled'] = false
-default['fenixedu-cookbook']['sap']['client']['cache']['storeage']['dir'] = '/dev/null'
+default['fenixedu-cookbook']['sap']['client']['cache'] = {
+  'enabled' => false,
+  'aggressive' => true,
+  'aggressive_expires' => 360,
+  'storeage_dir' => '/dev/null',
+}
 # This represents the SAP client ID (Mandante) to connect to
 default['fenixedu-cookbook']['sap']['principal']['id'] = ''
-default['fenixedu-cookbook']['sap']['saml']['attribute']['qualified']['name'] = 'istPersonUsername'
-default['fenixedu-cookbook']['sap']['saml']['encryption']['keystore']['file'] = 'sap-encrypt.jks'
-default['fenixedu-cookbook']['sap']['saml']['encryption'] = {
-  'alias' => 'sapsamlsvencrypt',
-  'password' => 'password',
-}
-default['fenixedu-cookbook']['sap']['saml']['issuer'] = 'SSO'
-default['fenixedu-cookbook']['sap']['saml']['signature']['algorithm'] = 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'
-default['fenixedu-cookbook']['sap']['saml']['signing']['keystore']['file'] = 'sap-sign.jks'
-default['fenixedu-cookbook']['sap']['saml']['signing'] = {
-  'alias' => 'sapsamlsv',
-  'password' => 'internet',
-}
 
-default['fenixedu-cookbook']['sap']['saml']['system']['user'] = 'LO-DOT'
+default['fenixedu-cookbook']['sap']['saml'] = {
+  'attribute_qualified_name' => 'istPersonUsername',
+  'encryption_keystore_file' => 'sap-encrypt.jks',
+  'encryption_alias' => 'sapsamlsvencrypt',
+  'encryption_password' => 'password',
+  'issuer' => 'SSO',
+  'signature_algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+  'signing_keystore_file' => 'sap-sign.jks',
+  'signing_alias' => 'sapsamlsv',
+  'signing_password' => 'internet',
+  'system_user' => 'LO-DOT',
+}
 
 default['fenixedu-cookbook']['sap']['service'] = {
   'cGroup' => '',
@@ -116,51 +116,48 @@ default['fenixedu-cookbook']['sap']['service'] = {
 
 ################### Properties for OAuth Properties ###################
 
-default['fenixedu-cookbook']['bennu']['oauth']['access']['token']['timeout']['seconds'] = 3600
-default['fenixedu-cookbook']['bennu']['oauth']['code']['timeout']['seconds'] = 60
-
+default['fenixedu-cookbook']['bennu']['oauth'] = {
+  # timeouts in seconds
+  'access_token_timeout' => 3600,
+  'code_timeout' => 60,
+}
 ################### Properties for Parking Configuration ###################
 
+default['fenixedu-cookbook']['parkingCardId']['admin']['password'] = ''
 default['fenixedu-cookbook']['exportParkingData'] = {
   'password' => '',
   'username' => '',
 }
-default['fenixedu-cookbook']['parkingCardId']['admin']['password'] = ''
 
 ################### Properties for General CMS Configuration ###################
 
 # When you are developing a theme, you can set this to the directory for online testing
-default['fenixedu-cookbook']['theme']['development']['directory'] = ''
+default['fenixedu-cookbook']['theme']['development'] = {
+  'directory' => '',
+  'mode' => false,
+}
 
 ################### Properties for Bennu Portal Configuration ###################
 
 # The URL to redirect the user to upon logout.
 default['fenixedu-cookbook']['logout']['url'] = ''
 # Disables Theme Caching and allows live-reloading of themes
-default['fenixedu-cookbook']['theme']['development']['mode'] = false
 
 ################### Properties for Bennu Core Configurations ###################
 
-# # Full application url
-# application.url = http://localhost:8080
-# # Default email for support. This is intended to be the fall-back for when no application specific email is configured.
-# default.support.email.address =
-# # Whether development mode is on. Throughout the application the behaviour can change according to this setting.
-# development.mode = true
-# # Whether to allow users to log in with a username/password combination.
-# local.login = true
-# # Default System Locale. If empty falls back to java system default. Must be included in locales.supported
-# locale.default =
-# # Locales that should be supported in ResourceBundles and other I18N mechanisms. If not specified falls back to a list with only the java system default.
-# locales.supported =
-# # the size threshold after which files will be written to disk
-# multipart.fileSizeThreshold = 67108864
-# # maximum size allowed for uploaded files
-# multipart.maxFileSize = 2147483648
-# # maximum size allowed for multipart/form-data requests
-# multipart.maxRequestSize = 2252341248
-# # The String value for the Cache-Control header for static resources
-# static.cache.control = max-age=86400
+# Full application url
+default['fenixedu-cookbook']['application_url'] = 'http://localhost:8080'      # Default email for support. This is intended to be the fall-back for when no application specific email is configured.
+default['fenixedu-cookbook']['support_email_address'] = ''                     # Whether to allow users to log in with a username/password combination.
+default['fenixedu-cookbook']['local_login'] = true                             # Default System Locale. If empty falls back to java system default. Must be included in locales.supported
+default['fenixedu-cookbook']['locale_default'] = ''                            # Locales that should be supported in ResourceBundles and other I18N mechanisms. If not specified falls back to a list with only the java system default.
+default['fenixedu-cookbook']['locales_supported'] = ''                         # the size threshold after which files will be written to disk
+default['fenixedu-cookbook']['static_cache_control_max_age'] = 86400
+default['fenixedu-cookbook']['multipart'] = {
+  'fileSizeThreshold' => 67108864,                                             # maximum size allowed for uploaded files
+  'maxFileSize' => 214748364,                                                  # maximum size allowed for multipart/form-data requests
+  'maxRequestSize' => 2252341248,                                              # The String value for the Cache-Control header for static resources
+}
+
 #
 #
 # ################### Properties for Registration Process Configuration ###################

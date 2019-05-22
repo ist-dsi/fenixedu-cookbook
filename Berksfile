@@ -1,7 +1,7 @@
 source 'https://supermarket.chef.io'
 
 metadata
-cookbook 'java', '~> 3.2.1'
+cookbook 'java', '~> 4.1.0'
 cookbook 'tomcat', '~> 3.2.0'
 cookbook 'maven', '~> 5.2.0'
 

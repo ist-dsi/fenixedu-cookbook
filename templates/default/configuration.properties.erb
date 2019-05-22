@@ -1,336 +1,131 @@
-################### Properties for Phd Institution Public Candidacy Properties ###################
+################### Properties for Phd Candidacy Properties ###################
 
-phd.institution.public.candidacy.access.link.* = 
-phd.institution.public.candidacy.referee.form.link.* = 
-phd.institution.public.candidacy.submission.link.* = 
-
-
-################### Properties for Drive Client SDK Configuration ###################
-
-drive.client.app.id = 
-drive.client.app.user = 
-drive.client.refresh.token = 
-drive.url = http://localhost:8080/drive
+phd.public.candidacy.access.link = <%= node['fenixedu-cookbook']['phd']['public']['candidacy']['access']['link'] %>
+phd.public.external.access.link = <%= node['fenixedu-cookbook']['phd']['public']['external']['access']['link'] %>
 
 
-################### Properties for Papyrus Configuration ###################
+################### Properties for Fenix Space Configuration ###################
 
-papyrus.token = changethistoken
-papyrus.url = http://localhost:8000
-
-
-################### Properties for Bullet Configuration ###################
-
-
-
-################### Properties for Fenix IST specific properties ###################
-
-db.giaf.alias = //localhost:3306/AssiduidadeOracleTeste
-db.giaf.pass = 
-db.giaf.user = root
-
-
-################### Properties for Identification Cards Configuration ###################
-
-# Secret for Institution ID card generation
-app.institution.AES128.secretKey = aa0bbfaf79654df4
-# PIN for Institution ID card generation
-app.institution.PIN = 0000
-# Password used to communicate with the SIBS Web Service, which returns the ID card production state.
-sibs.webService.password = 
-# UserName used to communicate with the SIBS Web Service, which returns the ID card production state.
-sibs.webService.username = 
-
-
-################### Properties for Email Dispatcher Configurations ###################
-
-mail.mime.id.suffix = email-dispatch
-mail.smtp.host = 
-mail.smtp.name = 
-mail.smtp.port = 25
-# If true, To and Cc recipients will be treated as Bcc recipients. The dispatcher does not guarantee the visibility of these types of recipients in sent emails. This flag exists for the cases where it may be preferable to guarantee that none are visible.
-mailSender.bcc.recipients = false
-mailSender.max.recipients = 50
-
-
-################### Properties for Scheduler Configuration ###################
-
-# Minutes between attempts to obtain the exclusive execution rights for the scheduler thread. In environments with multiple application servers this ensures that one of them has the scheduler running. Should be greater than 1.
-scheduler.lease.time.minutes = 5
-# Number of threads processing the task queue.
-scheduler.queue.threads.number = 2
-
-
-################### Properties for Bennu CAS Client Configuration ###################
-
-# Whether the CAS client is enabled
-cas.enabled = false
-# The base URL of the CAS server
-cas.serverUrl = http://localhost:8080/cas
-# The URL to jump to when no callback is specified
-cas.serviceUrl = 
+fontSize = <%= node['fenixedu-cookbook']['fontSize'] %>
+padding = <%= node['fenixedu-cookbook']['padding'] %>
+scaleRatio = <%= node['fenixedu-cookbook']['scaleRatio'] %>
+xAxisOffset = <%= node['fenixedu-cookbook']['xAxisOffset'] %>
+yAxisOffset = <%= node['fenixedu-cookbook']['yAxisOffset'] %>
 
 
 ################### Properties for Bennu Renderers Configuration ###################
 
 # Specifies if a checksum is generated and verified for each URL to avoid url tampering attacks.
-filterRequestWithDigest = true
+filterRequestWithDigest = <%= node['fenixedu-cookbook']['filterRequestWithDigest']%>
 # Redirect link to use when a URL tampering is detected. Required when 'filterRequestWithDigest' is true
-tamperingRedirect = /
+tamperingRedirect = <%= node['fenixedu-cookbook']['tamperingRedirect']%>
 # The HMAC Signature used to validate View State Integrity
-viewstate.signature.key = somerandomstring
+viewstate.signature.key = <%= node['fenixedu-cookbook']['viewstate']['signature']['key']%>
 
 
-################### Properties for Sap Sdk Configuration ###################
+################### Properties for Scheduler Configuration ###################
 
-sap.client.cache.aggressive = true
-sap.client.cache.aggressive.expires = 360
-sap.client.cache.enabled = false
-sap.client.cache.storeage.dir = /dev/null
-# This represents the SAP client ID (Mandante) to connect to
-sap.principal.id = 
-sap.saml.attribute.qualified.name = istPersonUsername
-sap.saml.encryption.alias = sapsamlsvencrypt
-sap.saml.encryption.keystore.file = sap-encrypt.jks
-sap.saml.encryption.password = password
-sap.saml.issuer = SSO
-sap.saml.signature.algorithm = http://www.w3.org/2001/04/xmldsig-more#rsa-sha256
-sap.saml.signing.alias = sapsamlsv
-sap.saml.signing.keystore.file = sap-sign.jks
-sap.saml.signing.password = internet
-sap.saml.system.user = LO-DOT
-sap.service.cGroup = 
-sap.service.fixedAssetCode = 
-sap.service.institutionCode = 
-sap.service.url = 
-sap.service.warehouse = 1801
-
-
-################### Properties for OAuth Properties ###################
-
-bennu.oauth.access.token.timeout.seconds = 3600
-bennu.oauth.code.timeout.seconds = 60
-
-
-################### Properties for Parking Configuration ###################
-
-exportParkingData.password = 
-exportParkingData.username = 
-parkingCardId.admin.password = 
-
-
-################### Properties for General CMS Configuration ###################
-
-# When you are developing a theme, you can set this to the directory for online testing
-theme.development.directory = 
+# Minutes between attempts to obtain the exclusive execution rights for the scheduler thread. In environments with multiple application servers this ensures that one of them has the scheduler running. Should be greater than 1.
+scheduler.lease.time.minutes = <%= node['fenixedu-cookbook']['scheduler']['lease']['time']['minutes'] %>
+# Number of threads processing the task queue.
+scheduler.queue.threads.number = <%= node['fenixedu-cookbook']['scheduler']['queue']['threads']['number'] %>
 
 
 ################### Properties for Bennu Portal Configuration ###################
 
 # The URL to redirect the user to upon logout.
-logout.url = 
+logout.url = <%= node['fenixedu-cookbook']['logout']['url'] %>
 # Disables Theme Caching and allows live-reloading of themes
-theme.development.mode = false
+theme.development.mode = <%= node['fenixedu-cookbook']['theme']['development']['mode'] %>
 
 
 ################### Properties for Bennu Core Configurations ###################
 
 # Full application url
-application.url = http://localhost:8080
+application.url = <%= node['fenixedu-cookbook']['application']['url'] %>
 # Default email for support. This is intended to be the fall-back for when no application specific email is configured.
-default.support.email.address = 
+default.support.email.address = <%= node['fenixedu-cookbook']['default']['support']['email']['address'] %>
 # Whether development mode is on. Throughout the application the behaviour can change according to this setting.
-development.mode = true
+development.mode = <%= node['fenixedu-cookbook']['development']['mode'] %>
 # Whether to allow users to log in with a username/password combination.
-local.login = true
+local.login = <%= node['fenixedu-cookbook']['local']['login'] %>
 # Default System Locale. If empty falls back to java system default. Must be included in locales.supported
-locale.default = 
+locale.default = <%= node['fenixedu-cookbook']['locale']['default'] %>
 # Locales that should be supported in ResourceBundles and other I18N mechanisms. If not specified falls back to a list with only the java system default.
-locales.supported = 
+locales.supported = <%= node['fenixedu-cookbook']['locales']['supported'] %>
 # the size threshold after which files will be written to disk
-multipart.fileSizeThreshold = 67108864
+multipart.fileSizeThreshold = <%= node['fenixedu-cookbook']['multipart']['fileSizeThreshold'] %>
 # maximum size allowed for uploaded files
-multipart.maxFileSize = 2147483648
+multipart.maxFileSize = <%= node['fenixedu-cookbook']['multipart']['maxFileSize'] %>
 # maximum size allowed for multipart/form-data requests
-multipart.maxRequestSize = 2252341248
+multipart.maxRequestSize = <%= node['fenixedu-cookbook']['multipart']['maxRequestSize'] %>
 # The String value for the Cache-Control header for static resources
-static.cache.control = max-age=86400
-
-
-################### Properties for Registration Process Configuration ###################
-
-certifier.jwt.secret = 
-certifier.url = 
-signer.jwt.secret = 
-signer.jwt.user = fenix
-signer.queue.alameda = 1
-signer.queue.taguspark = 2
-signer.url = https://localhost:8443/
-store.app.id = 
-store.app.refresh.token = 
-store.directory.name = documentos-oficiais/declaracoes
-store.url = http://localhost:8080/drive
-store.user = 
-
-
-################### Properties for EPFL Properties ###################
-
-phd.epfl.public.candidacy.access.link = 
-phd.epfl.public.candidacy.referee.form.link = 
-phd.epfl.public.candidacy.submission.link = 
-
-
-################### Properties for Giaf Invoice Configuration ###################
-
-# Filename to the client list from GIAF and corresponding VAT numbers.
-pt.indra.mygiaf.client.map = /dev/null
-# File store used to store files regarding invoices and reciepts from GIAF.
-pt.indra.mygiaf.invoice.dir = /dev/null
-# File store used to store files regarding documents from SAP.
-pt.sap.documents.dir = /dev/null
-# Filename with the bcc email addresses to report errors.
-pt.sap.mails.bcc = /dev/null
-# Filename with the email addresses to report errors.
-pt.sap.mails.to = /dev/null
-# Filename with the bcc email addresses to report errors.
-pt.sap.sync.active = true
-
-
-################### Properties for Sap Group Integration Configuration ###################
-
-
-
-################### Properties for Teacher Credits Configuration ###################
-
-lastSemesterForCredits = 
-lastYearForCredits = 2010/2011
-startSemesterForCredits = 2
-startYearForCredits = 2002/2003
-
-
-################### Properties for Email Dispatcher Configurations ###################
-
-messaging.files.prune.min.days = 3
-messaging.jwt.api.algorithm = HS256
-messaging.jwt.api.secret.key = somerandomstring
-messaging.jwt.api.ttl.ms = 1800000
-messaging.pebble.newlineTrimming = false
-
-
-################### Properties for FenixEdu IST CMS Components specific properties ###################
-
-sotisURL = https://sotis.tecnico.ulisboa.pt
+static.cache.control = <%= node['fenixedu-cookbook']['static']['cache']['control'] %>
 
 
 ################### Properties for FenixEdu Academic Configuration ###################
 
-active.student.personal.data.authorization.choices = NO_END
-ciist.sms.gateway.url = 
-ciist.sms.password = 
-ciist.sms.shouldRun = 
-ciist.sms.username = 
-generic.application.email.confirmation.link = http://localhost:8080/fenix/publico/genericApplications.do?method=confirmEmail&confirmationCode=
-generic.application.email.recommendation.link = http://localhost:8080/fenix/publico/genericApplications.do?method=uploadRecommendation&confirmationCode=
+active.student.personal.data.authorization.choices = <%= node['fenixedu-cookbook']['active']['student']['personal']['data']['authorization']['choices'] %>
+ciist.sms.gateway.url = <%= node['fenixedu-cookbook']['ciist']['sms']['gateway']['url'] %>
+ciist.sms.password = <%= node['fenixedu-cookbook']['ciist']['sms']['password'] %>
+ciist.sms.shouldRun = <%= node['fenixedu-cookbook']['ciist']['sms']['shouldRun'] %>
+ciist.sms.username = <%= node['fenixedu-cookbook']['ciist']['sms']['username'] %>
+generic.application.email.confirmation.link = <%= node['fenixedu-cookbook']['generic']['application']['email']['confirmation']['link']%>
+generic.application.email.recommendation.link = <%= node['fenixedu-cookbook']['generic']['application']['email']['recommendation']['link']%>
 # The host of the SMTP server used to send Emails
-mail.smtp.host = 
+mail.smtp.host = <%= node['fenixedu-cookbook']['mail']['smtp']['host'] %>
 # The name of the SMTP server used to send Emails
-mail.smtp.name = 
-mailSender.max.recipients = 50
-max.days.between.promise.and.payment = 2
-max.new.payment.codes.per.event = 3
-maximum.number.of.credits.for.enrolment = 40.5
-mobility.default.erasmus.program = ERASMUS
-phd.public.candidacy.submission.link = 
-physicalAddress.requiresValidation = true
-raides.request.info = false
-receipt.min.year.to.create = 2006
-receipt.numberSeries.for.years = 
-semester.for.from.enrolments = 1
+mail.smtp.name = <%= node['fenixedu-cookbook']['mail']['smtp']['name'] %>
+mailSender.max.recipients = <%= node['fenixedu-cookbook']['mailSender']['max']['recipients'] %>
+max.days.between.promise.and.payment = <%= node['fenixedu-cookbook']['max']['days']['between']['promise']['and']['payment'] %>
+max.new.payment.codes.per.event = <%= node['fenixedu-cookbook']['max']['new']['payment']['codes']['per']['event'] %>
+maximum.number.of.credits.for.enrolment = <%= node['fenixedu-cookbook']['maximum']['number']['of']['credits']['for']['enrolment'] %>
+mobility.default.erasmus.program = <%= node['fenixedu-cookbook']['mobility']['default']['erasmus']['program'] %>
+phd.public.candidacy.submission.link = <%= node['fenixedu-cookbook']['phd']['public']['candidacy']['submission']['link'] %>
+physicalAddress.requiresValidation = <%= node['fenixedu-cookbook']['physicalAddress']['requiresValidation'] %>
+raides.request.info = <%= node['fenixedu-cookbook']['raides']['request']['info'] %>
+receipt.min.year.to.create = <%= node['fenixedu-cookbook']['receipt']['min']['year']['to']['create'] %>
+receipt.numberSeries.for.years = <%= node['fenixedu-cookbook']['receipt']['numberSeries']['for']['years'] %>
+semester.for.from.enrolments = <%= node['fenixedu-cookbook']['semester']['for']['from']['enrolments'] %>
 # indicates if pending request should be stored in database to recover current session after new login
-semester.for.from.mark.sheet.managment = 2
+semester.for.from.mark.sheet.managment = <%= node['fenixedu-cookbook']['semester']['for']['from']['mark']['sheet']['managment'] %>
 # institution entity code to be used in atm machines with reference to perform payments
-sibs.entityCode = 1111
-start.semester.for.bolonha.degrees = 1
-start.semester.for.bolonha.transition = 1
-start.year.for.bolonha.degrees = 2006/2007
-start.year.for.bolonha.transition = 2007/2008
-twilio.default.messaging.service.sid = 
-twilio.from.number = 
-twilio.sid = 
-twilio.stoken = 
-use.global.interest.rate.table.for.event.penalties = false
-webServices.internationalRegistration.password = 
-webServices.internationalRegistration.url = 
-webServices.internationalRegistration.username = 
-year.for.from.enrolments = 2004/2005
+sibs.entityCode = <%= node['fenixedu-cookbook']['sibs']['entityCode'] %>
+start.semester.for.bolonha.degrees = <%= node['fenixedu-cookbook']['start']['semester']['for']['bolonha']['degrees'] %>
+start.semester.for.bolonha.transition = <%= node['fenixedu-cookbook']['start']['semester']['for']['bolonha']['transition'] %>
+start.year.for.bolonha.degrees = <%= node['fenixedu-cookbook']['start']['year']['for']['bolonha']['degrees'] %>
+start.year.for.bolonha.transition = <%= node['fenixedu-cookbook']['start']['year']['for']['bolonha']['transition'] %>
+twilio.default.messaging.service.sid = <%= node['fenixedu-cookbook']['twilio']['default']['messaging']['service']['sid'] %>
+twilio.from.number = <%= node['fenixedu-cookbook']['twilio']['from']['number'] %>
+twilio.sid = <%= node['fenixedu-cookbook']['twilio']['sid'] %>
+twilio.stoken = <%= node['fenixedu-cookbook']['twilio']['stoken'] %>
+use.global.interest.rate.table.for.event.penalties = <%= node['fenixedu-cookbook']['use']['global']['interest']['rate']['table']['for']['event']['penalties'] %>
+webServices.internationalRegistration.password = <%= node['fenixedu-cookbook']['webServices']['internationalRegistration']['password']  %>
+webServices.internationalRegistration.url = <%= node['fenixedu-cookbook']['webServices']['internationalRegistration']['url'] %>
+webServices.internationalRegistration.username = <%= node['fenixedu-cookbook']['webServices']['internationalRegistration']['username'] %>
+year.for.from.enrolments = <%= node['fenixedu-cookbook']['year']['for']['from']['enrolments'] %>
 # identifies the execution period after which mark sheet are to be managed in the fenix system.
-year.for.from.mark.sheet.managment = 2005/2006
+year.for.from.mark.sheet.managment = <%= node['fenixedu-cookbook']['year']['for']['from']['mark']['sheet']['managment'] %>
 
 
-################### Properties for Phd Candidacy Properties ###################
+################### Properties for Phd Institution Public Candidacy Properties ###################
 
-phd.public.candidacy.access.link = 
-phd.public.external.access.link = 
-
-
-################### Properties for BPI Integration Configuration ###################
-
-converter.secret = changeme
-converter.url = http://localhost:8000
+phd.institution.public.candidacy.access.link.* = <%= node['fenixedu-cookbook']['phd']['institution']['public']['candidacy']['access']['link'] %>
+phd.institution.public.candidacy.referee.form.link.* = <%= node['fenixedu-cookbook']['phd']['institution']['public']['candidacy']['referee']['form']['link'] %>
+phd.institution.public.candidacy.submission.link.* = <%= node['fenixedu-cookbook']['phd']['institution']['public']['candidacy']['submission']['link'] %>
 
 
-################### Properties for Renates Integration Configuration ###################
+################### Properties for Email Dispatcher Configurations ###################
 
-renates.establishment.code = 0000
-renates.file.entries.limit = 1000
-renates.file.entries.start.date = 31/12/2009
-renates.organic.unit.code = 0000
-renates.orientator.info.request.header.value = 
-renates.orientator.info.request.url = 
-
-
-################### Properties for Fenix Space Configuration ###################
-
-fontSize = 0.007
-padding = 0.025
-scaleRatio = 1200
-xAxisOffset = 0.075
-yAxisOffset = 0.3
+messaging.files.prune.min.days = <%= node['fenixedu-cookbook']['messaging']['files']['prune']['min']['days'] %>
+messaging.jwt.api.algorithm = <%= node['fenixedu-cookbook']['messaging']['jwt']['api']['algorithm'] %>
+messaging.jwt.api.secret.key = <%= node['fenixedu-cookbook']['messaging']['jwt']['api']['secret']['key'] %>
+messaging.jwt.api.ttl.ms = <%= node['fenixedu-cookbook']['messaging']['jwt']['api']['ttl']['ms'] %>
+messaging.pebble.newlineTrimming = <%= node['fenixedu-cookbook']['messaging']['pebble']['newlineTrimming'] %>
 
 
-################### Properties for FenixEdu IST Integration specific properties ###################
+################### Properties for EPFL Properties ###################
 
-# The password for parking information
-api.parking.password = 
-# The url to get parking information
-api.parking.url = 
-# The username for parking information
-api.parking.username = 
-externalServices.ISTConnect.password = 
-externalServices.ISTConnect.username = 
-externalServices.koha.password = 
-externalServices.koha.username = 
-fenix.api.canteen.defaultName = alameda
-fenix.api.canteen.secret = 
-fenix.api.canteen.url = 
-fenix.api.canteen.user = 
-fenix.api.contacts.url = 
-fenix.api.news.rss.url.en = 
-fenix.api.news.rss.url.pt = 
-fenix.api.shuttle.url = 
-ist.cas.enabled = false
-ldap.sync.services.password = 
-ldap.sync.services.username = 
-legacyFilesRedirectMapLocation = 
-pushnotifications.server = http://127.0.0.1:8000/
-pushnotifications.token = someaccesstoken
-scheduler.watchdog.file = /tmp/fenix-scheduler-watchdog
-# used in header payments file and represents entity service identification (i.e. sibs). Default value '50000000' (sibs identification)
-sibs.destinationInstitutionId = 50000000
-# used in header payments file, and represents institution identification accordding to transfer service (i.e. sibs). Must be given by the entity that is peforming this service. Format: '9XXXXXXX'
-sibs.sourceInstitutionId = 11111111
-# The email address to send notifications about the AFS store quotas.
-store.quota.warning.email = 
-ticketing.jwt.secret = 
-ticketing.url = http://127.0.0.1:8000/
-
+phd.epfl.public.candidacy.access.link = <%= node['fenixedu-cookbook']['phd']['epfl']['public']['candidacy']['access']['link'] %>
+phd.epfl.public.candidacy.referee.form.link = <%= node['fenixedu-cookbook']['phd']['epfl']['public']['candidacy']['referee']['form']['link'] %>
+phd.epfl.public.candidacy.submission.link = <%= node['fenixedu-cookbook']['phd']['epfl']['public']['candidacy']['submission']['link'] %>

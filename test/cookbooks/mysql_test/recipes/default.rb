@@ -8,7 +8,7 @@ mariadb_client_install 'mariadb client' do
   version '10.3'
 end
 
-mariadb_database 'fenixedu_test' do
+mariadb_database 'fenixedu' do
   user 'root'
   host 'localhost'
   password ''
